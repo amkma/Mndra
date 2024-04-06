@@ -21,7 +21,6 @@ public class Main extends PApplet{
     Button Back;
     Button lvl1;
     Button lvl2;
-    Boom reaction;//defination of Boom Object
     boolean state;
     boolean play;
     static boolean gameEnded = false; // Flag to track whether the game has ended
@@ -34,12 +33,12 @@ public class Main extends PApplet{
     PImage startbg;// Declare a variable to hold the Start image
     PImage win;// Declare a variable to hold the winner image
     PImage lose;// Declare a variable to hold the Game over image
-    static boolean Enter_1;// it will be true in lvl 1 to make archer can through arrows ,if i don't use it i will make archer through arrows in start menu
-    boolean Reload = true;// i make it in reloading arrows
+    static boolean Enter_1;// it will be true in lvl 1 to make archer can through arrows ,if I don't use it I will make archer through arrows in start menu
+    boolean Reload = true;// I make it in reloading arrows
     ArrayList<Arrow> arrowList;//definition of ArrayList of arrows
     ArrayList<Enemy> enemyList;//definition of ArrayList of Enemy
     ArrayList<Boom> boomList;//definition of ArrayList of Boom
-    int arrowsNumber; //number of arrows i use
+    int arrowsNumber; //number of arrows I use
     static int menu =0;// make us switch between levels
     final int sizeX = 1000;// Width of game
     final int sizeY = 700;//Height of game
@@ -54,8 +53,7 @@ public class Main extends PApplet{
     public void setup(){
         processing = this;
         frameRate(100);
-        //music.loop();
-        //song.loop();
+
 
         button =new Button (385,80,250,80,"Play",0,111,154);
         Continue =new Button (0,540,290,80,"CONTINUE",0,111,154);
@@ -83,13 +81,10 @@ public class Main extends PApplet{
         lose.resize(width, height);
         startbg.resize(width,height);
         Archer = new Character("shooterr.png", 0, mouseY,ArcherX, ArcherY);
-        arrowList = new ArrayList<Arrow>();
-        enemyList = new ArrayList<Enemy>();
-        boomList=new ArrayList<Boom>();
+        arrowList = new ArrayList<>();
+        enemyList = new ArrayList<>();
+        boomList= new ArrayList<>();
         state = false;
-        //video.loop();
-        // Create monsters and position them next to each other
-
     }
     public void draw(){
         switch (menu)
@@ -108,20 +103,6 @@ public class Main extends PApplet{
             }
 
             break;
-//  case 1:
-//{
-//    //song.loop();
-//    //song.play();
-
-
-////  for (int i = 0; i < monsters.length; i++)
-////{ // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
-////    monsters[i] = new Enemy("monster.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY);
-////    enemyList.add(monsters[i]);
-////}
-//  menu++;
-//}
-            //break;
             case 1:
             {
                 arrowsNumber = 20;
@@ -141,28 +122,26 @@ public class Main extends PApplet{
                     if(lvl1.isClicked())
                     {
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
+                        { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
                         menu=2;
                         music.loop();
-
                     }
                 }
                 if (lvl==1)
                 {
                     music.loop();
+                    music.pause();
                     image(lvl2_start,0,0);
-                    //lvl1.display();
-                    //lvl2.display();
                     lvl1.update();
                     lvl2.update();
 
                     if(lvl1.isClicked())
                     {
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
+                        { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -176,7 +155,7 @@ public class Main extends PApplet{
                         int z =(int)random (10,15);
 
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
+                        { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -194,6 +173,7 @@ public class Main extends PApplet{
                 else if(lvl==2)
                 {
                     music.loop();
+                    music.pause();
                     lvl1.display();
                     lvl2.display();
 
@@ -203,7 +183,7 @@ public class Main extends PApplet{
                     if(lvl1.isClicked())
                     {
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
+                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -215,7 +195,7 @@ public class Main extends PApplet{
                     int y =(int)random (5,10);
                     int z =(int)random (10,15);
                     for (int i = 0; i < monsters.length; i++)
-                    { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
+                    { // making array of monsters that have defence x coorrdinates ,don't ask me ho can I get this equation
                         monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                         enemyList.add(monsters[i]);
                     }
@@ -243,7 +223,7 @@ public class Main extends PApplet{
             case 3:
             {
 
-                if (gamestate==true)
+                if (gamestate)
                 {
                     music.pause();
                     song.play();
@@ -278,92 +258,15 @@ public class Main extends PApplet{
             break;
             case 4:
             {
-                Archer.setImage("shooterr.png");
                 song.pause();
-                int n = 0;
-                Enter_1 = true;
-                image(gif, 0, 0);
-                Archer.update(mouseY);
-                Archer.displayArcher();
-
-                for (Enemy anEnemy : enemyList)
-                {
-                    anEnemy.displayEnemy();
-                }
-
-                for (Arrow anArrow : arrowList)
-                {
-                    anArrow.displayArrow();
-                    anArrow.moveArrow();
-                    anArrow.isClean();
-                    for (Enemy anEnemy : enemyList)
-                    {
-                        anArrow.shootEnemy(anEnemy);
-                    }
-                }
-
-                // Remove arrows and enemies that need to be cleaned
-                for (int i = arrowList.size() - 1; i >= 0; i--)
-                {
-                    Arrow anArrow = arrowList.get(i);
-                    if (anArrow.clean)
-                    {
-                        arrowList.remove(anArrow);
-                    }
-                }
-
-                for (int i = enemyList.size() - 1; i >= 0; i--)
-                {
-                    Enemy anEnemy = enemyList.get(i);
-                    if (anEnemy.removeEnemy)
-                    {
-                        float x = anEnemy.x;
-                        float y = anEnemy.y;
-                        boomList.add(new Boom("boom.png","boomsound.wav", x, y, 90, 40));
-                        enemyList.remove(anEnemy);
-                        Boom aBoom = boomList.get(n);
-                        ++n;
-                        aBoom.displayReaction();
-                        aBoom.playsong();
-                    }
-                }
-
-                for (Boom aBoom : boomList)
-                {
-                    aBoom.displayReaction();
-                }
-
-                if (state && !gameEnded)
-                {
-                    if (arrowsNumber >= 0 && enemyList.size() == 0)
-                    {
-                        println("WINNER");
-                        gameEnded = true;
-                        boomList.clear();
-                        gamestate = true;
-                        enemyList.clear();
-                        arrowList.clear();
-                        menu=5;
-                        Enter_1 = false;
-                        lvl=2;
-                    }       else if (arrowList.size() == 0 && enemyList.size() > 0 && arrowsNumber == 0)
-                    {
-                        println("GAME OVER");
-                        gameEnded = true;
-                        boomList.clear();
-                        gamestate = false;
-                        enemyList.clear();
-                        arrowList.clear();
-                        menu=5;
-                        Enter_1 = false;
-
-                    }
-                }
+                music.play();
+                Lvl_2 lvl2 = new Lvl_2();
+                lvl2.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state);//, gameEnded
             }
             break;
             case 5:
             {
-                if (gamestate==true)
+                if (gamestate)
                 {
                     music.pause();
                     song.play();
@@ -403,7 +306,7 @@ public class Main extends PApplet{
     {
         if (mouseButton == LEFT && Reload && arrowsNumber >= 0&&Enter_1&&!gameEnded)
         {
-            arrowList.add(new Arrow("arrowr.png", 0, mouseY, 45, 15, sizeX));
+            arrowList.add(new Arrow("arrowr.png", 0, mouseY+12, 45, 15, sizeX));
             --arrowsNumber;
             Archer.setImage("shooterra.png");
             Reload = false;
@@ -411,11 +314,13 @@ public class Main extends PApplet{
             if(!gameEnded)
             {
                 arrowsound.loop();
+                arrowsound.pause();
                 arrowsound.play();
+
             }
             state = true;
         }
-        if (mouseButton == RIGHT && arrowsNumber <= 20 && arrowsNumber > 0) {
+        if (mouseButton == RIGHT && arrowsNumber > 0) {
             Reload = true;
             Archer.setImage("shooterr.png");
         }

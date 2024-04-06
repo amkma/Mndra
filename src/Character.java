@@ -7,8 +7,8 @@ class Character
     float width, height;
 
     Character(String filename, float x, float y, float width, float height)
-    {// Constractor
-        // all of this just I take all of things passed by constactor to class
+    {// Constructor
+        // all of this just I take all things passed by constructor to class
         this.Archer = Main.processing.loadImage(filename); // Load image of archer to program
         this.x = x;
         this.y = y;
