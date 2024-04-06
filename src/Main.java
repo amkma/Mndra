@@ -8,15 +8,15 @@ public class Main extends PApplet{
         PApplet.main("Main",args);
     }
 
-    AudioPlayer music; //defination of music
-    AudioPlayer song;//defination of song
+    AudioPlayer music; //definition of music
+    AudioPlayer song;//definition of song
     AudioPlayer boomsound;
     AudioPlayer arrowsound;
     //Movie video;
     float speed=1;
     static Minim minim;
-    Character Archer;//defination of Character Object
-    Button button;//defination of Button Object
+    Character Archer;//definition of Character Object
+    Button button;//definition of Button Object
     Button Continue;
     Button Back;
     Button lvl1;
@@ -33,12 +33,12 @@ public class Main extends PApplet{
     PImage goodguy;
     PImage startbg;// Declare a variable to hold the Start image
     PImage win;// Declare a variable to hold the winner image
-    PImage lose;// Declare a variable to hold the Gameover image
-    static boolean Enter_1;// it will be true in lvl 1 to make archer can through arrows ,if i dont use it i will make archer through arrows in start menu
+    PImage lose;// Declare a variable to hold the Game over image
+    static boolean Enter_1;// it will be true in lvl 1 to make archer can through arrows ,if i don't use it i will make archer through arrows in start menu
     boolean Reload = true;// i make it in reloading arrows
-    ArrayList<Arrow> arrowList;//defination of ArrayList of arrows
-    ArrayList<Enemy> enemyList;//defination of ArrayList of Enemy
-    ArrayList<Boom> boomList;//defination of ArrayList of Boom
+    ArrayList<Arrow> arrowList;//definition of ArrayList of arrows
+    ArrayList<Enemy> enemyList;//definition of ArrayList of Enemy
+    ArrayList<Boom> boomList;//definition of ArrayList of Boom
     int arrowsNumber; //number of arrows i use
     static int menu =0;// make us switch between levels
     final int sizeX = 1000;// Width of game
@@ -115,8 +115,8 @@ public class Main extends PApplet{
 
 
 ////  for (int i = 0; i < monsters.length; i++)
-////{ // making array of monsters that have deffernce x coorrdinates ,dont ask me ho can i get this equation
-////    monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY);
+////{ // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
+////    monsters[i] = new Enemy("monster.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY);
 ////    enemyList.add(monsters[i]);
 ////}
 //  menu++;
@@ -141,7 +141,7 @@ public class Main extends PApplet{
                     if(lvl1.isClicked())
                     {
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have deffernce x coorrdinates ,dont ask me ho can i get this equation
+                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -162,7 +162,7 @@ public class Main extends PApplet{
                     if(lvl1.isClicked())
                     {
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have deffernce x coorrdinates ,dont ask me ho can i get this equation
+                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -176,7 +176,7 @@ public class Main extends PApplet{
                         int z =(int)random (10,15);
 
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have deffernce x coorrdinates ,dont ask me ho can i get this equation
+                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -203,7 +203,7 @@ public class Main extends PApplet{
                     if(lvl1.isClicked())
                     {
                         for (int i = 0; i < monsters.length; i++)
-                        { // making array of monsters that have deffernce x coorrdinates ,dont ask me ho can i get this equation
+                        { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
@@ -215,7 +215,7 @@ public class Main extends PApplet{
                     int y =(int)random (5,10);
                     int z =(int)random (10,15);
                     for (int i = 0; i < monsters.length; i++)
-                    { // making array of monsters that have deffernce x coorrdinates ,dont ask me ho can i get this equation
+                    { // making array of monsters that have defence x coorrdinates ,don't ask me ho can i get this equation
                         monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
                         enemyList.add(monsters[i]);
                     }

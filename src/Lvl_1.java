@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 class Lvl_1
 {
-    // Constractor
+    // Constructor
     void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state) //, boolean gameEnded
     {
-        // all of this just I take all of things passed by constactor to class
+        // all of this just I take all things passed by constructor to class
         int n = 0;
         Main.Enter_1 = true;
         Main.processing.image(Main.gif, 0, 0);

@@ -9,8 +9,8 @@ public class Enemy
     float x, y, w, h;// enemy will start ftom this cordinates
     float speed;
     Enemy(String filename, float startingX, float startingY, int startingW, int startingH, int sizeY,float fast)
-    {// Constractor
-        // all of this just I take all of things passed by constactor to class
+    {// Constructor
+        // all of this just I take all things passed by constructor to class
         x = startingX;
         y = startingY;
         w = startingW;
