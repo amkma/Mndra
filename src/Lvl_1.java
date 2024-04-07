@@ -48,17 +48,21 @@ class Lvl_1
                 float x = anEnemy.x;
                 float y = anEnemy.y;
                 boomList.add(new Boom("boom.png","boomsound.wav", x, y, 90, 40));
+                Main.processing.tint(255,90);
+                Main.processing.noTint();
                 enemyList.remove(anEnemy);
                 Boom aBoom = boomList.get(n);
                 ++n;
                 aBoom.displayReaction();
                 aBoom.playsong();
+
             }
         }
 
         for (Boom aBoom : boomList)
         {
             aBoom.displayReaction();
+
         }
 
         if (state && !Main.gameEnded)
