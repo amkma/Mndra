@@ -58,9 +58,9 @@ public class Main extends PApplet{
 
 
         button =new Button (385,80,250,80,"Play",0,111,154);
-        Continue =new Button (0,540,290,80,"CONTINUE",0,111,154);
-        lvl1 =new Button (380,245,200,80,"Play",0,111,154);
-        lvl2 =new Button (380,540,220,70,"Play",0,111,154);
+        Continue =new Button (365,540,290,80,"CONTINUE",0,111,154);
+        lvl1 =new Button (150,405,200,55,"lvl1",0,111,154);
+        lvl2 =new Button (630,405,220,55,"lvl2",0,111,154);
         Back =new Button (365,540,300,70,"BACK",0,111,154);
         minim =new Minim(this);
         music =minim.loadFile("Om_Kalsoum.wav");
@@ -82,6 +82,8 @@ public class Main extends PApplet{
         lvl2_start.resize(width,height);
         lvl3_start.resize(width,height);
         lose.resize(width, height);
+        score.resize(width, height);
+
         startbg.resize(width,height);
         Archer = new Character("shooterr.png", 0, mouseY,ArcherX, ArcherY);
         arrowList = new ArrayList<>();
