@@ -7,6 +7,9 @@ public class Lvl_2 {
         int n = 0;
         Main.Enter_1 = true;
         Main.processing.image(Main.gif, 0, 0);
+      Main.processing.image(Main.score, 0, 0);
+//        scoreSystem();
+
         archer.update(Main.processing.mouseY);
         archer.displayArcher();
 
@@ -55,6 +58,8 @@ public class Lvl_2 {
         for (Boom aBoom : boomList)
         {
             aBoom.displayReaction();
+            aBoom.moveReaction();
+
         }
 
         if (state && !Main.gameEnded)

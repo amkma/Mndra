@@ -27,6 +27,8 @@ public class Main extends PApplet{
     static boolean gamestate;// lose or win  ,used in end of level
     static PImage gif; // Declare a variable to hold the sky image
     PImage lvl1_start;
+    static PImage score; // Declare a variable to hold the sky image
+
     PImage lvl2_start;
     PImage lvl3_start;
     PImage goodguy;
@@ -69,6 +71,7 @@ public class Main extends PApplet{
         lose=loadImage("Gameover.jpg");
         startbg =loadImage("startbg.jpg");
         goodguy =loadImage("goodguy.png");
+        score =loadImage("Score.png");
         gif = loadImage("bg2.jpg"); // Load your GIF file
         lvl1_start = loadImage("lvl0.jpg");
         lvl2_start = loadImage("lvl1.jpg");
@@ -325,5 +328,20 @@ public class Main extends PApplet{
             Reload = true;
             Archer.setImage("shooterr.png");
         }
+    }
+    void scoreSystem(){
+        int enemy = (15-enemyList.size());
+        int score = (arrowsNumber+1)*enemy;
+        //bar
+        fill(220);
+        stroke(100);
+        strokeWeight(3);
+        //score
+//        fill(#E0DECD); // Bright yellow
+        // textSize(32);
+        text(score,137,63);
+        text( enemy ,width-87,45);
+        text(arrowsNumber ,width-87,103);
+
     }
 }
