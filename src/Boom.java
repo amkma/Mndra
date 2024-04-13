@@ -32,10 +32,7 @@ class Boom
         Main.processing.noTint();//make the others don't fade
 
     }
-    void moveReaction()
-    {
-        //y+=2; // it will make boom move, but I still do not know how I can use it
-    }
+
     void playsong()
     {
         boomsong.loop();
@@ -43,8 +40,5 @@ class Boom
         boomsong.play();
 
     }
-    void draw(){
-    }
-
     }
 

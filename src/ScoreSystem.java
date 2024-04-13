@@ -12,7 +12,7 @@ class ScoreSystem {
         Main.processing. strokeWeight(3);
         //score
 //        fill(#E0DECD); // Bright yellow
-        while(Main. updateScore) {
+        while(Main.updateScore) {
            Main.accumulatedScore+=score;
             Main.updateScore=false;
 
@@ -23,4 +23,5 @@ class ScoreSystem {
         Main.processing.  text(arrowsNumber ,1000-87,103);
 
     }
+
 }

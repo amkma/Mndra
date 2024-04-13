@@ -59,7 +59,6 @@ import java.util.ArrayList;
         for (Boom aBoom : boomList)
         {
             aBoom.displayReaction();
-            aBoom.moveReaction();
 
         }
 

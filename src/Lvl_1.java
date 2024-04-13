@@ -66,7 +66,6 @@ class Lvl_1
         for (Boom aBoom : boomList)
         {
             aBoom.displayReaction();
-            aBoom.moveReaction();
 
         }
 

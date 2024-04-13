@@ -243,6 +243,7 @@ public class Main extends PApplet{
                     music.pause();
                     song.play();
                     image(win, 0, 0);
+                    displayAccumulatedScore();
                     //Continue.display();
                     Continue.update();
                     if(Continue.isClicked())
@@ -260,6 +261,7 @@ public class Main extends PApplet{
                     enemyList.clear();
                     song.play();
                     image(lose, 0, 0);
+                    displayAccumulatedScore();
                     //Back.display();
                     Back.update();
                     if(Back.isClicked())
@@ -344,5 +346,10 @@ public class Main extends PApplet{
             Reload = true;
             Archer.setImage("shooterr.png");
         }
+    }
+    void displayAccumulatedScore() {
+       textSize(32);
+     text(accumulatedScore,137,63);
+
     }
 }

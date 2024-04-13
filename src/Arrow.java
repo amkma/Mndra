@@ -34,8 +34,8 @@ class Arrow
         // Update bounding arrow coordinates
         left = x + 38;
         right = x + 42;
-        top = y - 10;
-        bottom = y + 5;
+        top = y ;
+        bottom = y ;
     }
 
     void isClean()
