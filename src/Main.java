@@ -345,19 +345,4 @@ public class Main extends PApplet{
             Archer.setImage("shooterr.png");
         }
     }
-    public void scoreSystem(){
-        int enemy = (15-enemyList.size());
-        int score = (arrowsNumber+1)*enemy;
-        //bar
-        fill(220);
-        stroke(100);
-        strokeWeight(3);
-        //score
-//        fill(#E0DECD); // Bright yellow
-         textSize(32);
-        text(score,137,63);
-        text( enemy ,width-87,45);
-        text(arrowsNumber ,width-87,103);
-
-    }
 }

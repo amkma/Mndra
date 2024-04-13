@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import processing.core.*;
-import ddf.minim.*;
-import java.util.*;
+
 class ScoreSystem {
 
     void displayScore( ArrayList<Enemy> enemyList, int arrowsNumber)
