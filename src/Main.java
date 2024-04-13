@@ -19,6 +19,7 @@ public class Main extends PApplet{
     Button button;//definition of Button Object
     Button Continue;
     Button Back;
+    PFont f;
     Button lvl1;
     Button lvl2;
     boolean state;
@@ -37,10 +38,12 @@ public class Main extends PApplet{
     PImage lose;// Declare a variable to hold the Game over image
     static boolean Enter_1;// it will be true in lvl 1 to make archer can through arrows ,if I don't use it I will make archer through arrows in start menu
     boolean Reload = true;// I make it in reloading arrows
+    static boolean updateScore ;
+    static int accumulatedScore;
     ArrayList<Arrow> arrowList;//definition of ArrayList of arrows
-    ArrayList<Enemy> enemyList;//definition of ArrayList of Enemy
+    static ArrayList<Enemy> enemyList;//definition of ArrayList of Enemy
     ArrayList<Boom> boomList;//definition of ArrayList of Boom
-    int arrowsNumber; //number of arrows I use
+    static int arrowsNumber; //number of arrows I use
     static int menu =0;// make us switch between levels
     final int sizeX = 1000;// Width of game
     final int sizeY = 700;//Height of game
@@ -48,6 +51,7 @@ public class Main extends PApplet{
     static int ArcherY=100;
     static int lvl=0;
     Enemy[] monsters = new Enemy[15]; // Array to hold the monsters
+    ScoreSystem Score =new ScoreSystem();
 
     public void settings(){
         size(1000,700);
@@ -56,7 +60,8 @@ public class Main extends PApplet{
         processing = this;
         frameRate(100);
 
-
+        f=createFont("VIP Arabic Typo",25,true);
+        textFont(f);
         button =new Button (385,80,250,80,"Play",0,111,154);
         Continue =new Button (365,540,290,80,"CONTINUE",0,111,154);
         lvl1 =new Button (150,405,200,55,"lvl1",0,111,154);
@@ -90,6 +95,8 @@ public class Main extends PApplet{
         enemyList = new ArrayList<>();
         boomList= new ArrayList<>();
         state = false;
+        updateScore = false;
+        accumulatedScore=0;
     }
     public void draw(){
         switch (menu)
@@ -145,6 +152,7 @@ public class Main extends PApplet{
 
                     if(lvl1.isClicked())
                     {
+                        accumulatedScore=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
@@ -161,12 +169,12 @@ public class Main extends PApplet{
 
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
-                            monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
+                            monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,speed);
                             enemyList.add(monsters[i]);
                         }
-                        monsters[x] = new Enemy("goodguy.png", startX - x * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
-                        monsters[y] = new Enemy("goodguy.png", startX - y * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
-                        monsters[z] = new Enemy("goodguy.png", startX - z * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
+                        monsters[x] = new Enemy("goodguy.png", startX - x * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
+                        monsters[y] = new Enemy("goodguy.png", startX - y * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
+                        monsters[z] = new Enemy("goodguy.png", startX - z * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
                         enemyList.set(x, monsters[x]);
                         enemyList.set(y, monsters[y]);
                         enemyList.set(z, monsters[z]);
@@ -187,6 +195,7 @@ public class Main extends PApplet{
                     lvl2.update();
                     if(lvl1.isClicked())
                     {
+                        accumulatedScore=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coorrdinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
@@ -196,17 +205,18 @@ public class Main extends PApplet{
                         arrowList.clear();
                     }if(lvl2.isClicked())
                 {
+                    accumulatedScore=0;
                     int x =(int)random (0,5);
                     int y =(int)random (5,10);
                     int z =(int)random (10,15);
                     for (int i = 0; i < monsters.length; i++)
                     { // making array of monsters that have defence x coorrdinates ,don't ask me ho can I get this equation
-                        monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
+                        monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,speed);
                         enemyList.add(monsters[i]);
                     }
-                    monsters[x] = new Enemy("goodguy.png", startX - x * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
-                    monsters[y] = new Enemy("goodguy.png", startX - y * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
-                    monsters[z] = new Enemy("goodguy.png", startX - z * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
+                    monsters[x] = new Enemy("goodguy.png", startX - x * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
+                    monsters[y] = new Enemy("goodguy.png", startX - y * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
+                    monsters[z] = new Enemy("goodguy.png", startX - z * (monsterWidth + spacing), random(750,1200), monsterWidth, monsterHeight, sizeY,random(0.8F, 1.5F));
                     enemyList.set(x, monsters[x]);
                     enemyList.set(y, monsters[y]);
                     enemyList.set(z, monsters[z]);
@@ -223,6 +233,7 @@ public class Main extends PApplet{
                 music.play();
                 Lvl_1 lvl1 = new Lvl_1();
                 lvl1.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state);//, gameEnded
+                Score.displayScore(  enemyList,  arrowsNumber);
             }
             break;
             case 3:
@@ -258,6 +269,7 @@ public class Main extends PApplet{
                         menu=1;
                         arrowsNumber = 20;
                         //music.close();
+                        accumulatedScore=0;
                     }
                 }
             }
@@ -268,6 +280,8 @@ public class Main extends PApplet{
                 music.play();
                 Lvl_2 lvl2 = new Lvl_2();
                 lvl2.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state);//, gameEnded
+                Score.displayScore(  enemyList,  arrowsNumber);
+
             }
             break;
             case 5:
@@ -300,6 +314,7 @@ public class Main extends PApplet{
                         menu=1;
                         arrowsNumber = 20;
                         //music.close();
+                        accumulatedScore=0;
                     }
                 }
             }
@@ -331,7 +346,7 @@ public class Main extends PApplet{
             Archer.setImage("shooterr.png");
         }
     }
-    void scoreSystem(){
+    public void scoreSystem(){
         int enemy = (15-enemyList.size());
         int score = (arrowsNumber+1)*enemy;
         //bar
@@ -340,7 +355,7 @@ public class Main extends PApplet{
         strokeWeight(3);
         //score
 //        fill(#E0DECD); // Bright yellow
-        // textSize(32);
+         textSize(32);
         text(score,137,63);
         text( enemy ,width-87,45);
         text(arrowsNumber ,width-87,103);

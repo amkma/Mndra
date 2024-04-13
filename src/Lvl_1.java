@@ -1,8 +1,9 @@
-import processing.core.PImage;
+//import processing.core.PImage;
 
 import java.util.ArrayList;
 
 class Lvl_1
+
 {
     // Constructor
     void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state) //, boolean gameEnded
@@ -57,6 +58,7 @@ class Lvl_1
                 ++n;
                 aBoom.displayReaction();
                 aBoom.playsong();
+                Main.updateScore=true;
 
             }
         }
@@ -79,14 +81,11 @@ class Lvl_1
                 enemyList.clear();
                 Main.menu=3;
                 Main.Enter_1 = false;
-                if (Main.lvl==0)
+                if (Main.lvl==0||Main.lvl==1)
                 {
                     Main.lvl=1;
                 }
-                else if(Main.lvl==1)
-                {
-                    Main.lvl=2;
-                }
+
                 else
                 {
                     Main.lvl =2;

@@ -1,14 +1,14 @@
 
 import java.util.ArrayList;
 
-public class Lvl_2 {
+ class Lvl_2 {
     void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state) //, boolean gameEnded
     {
         int n = 0;
         Main.Enter_1 = true;
         Main.processing.image(Main.gif, 0, 0);
       Main.processing.image(Main.score, 0, 0);
-//        scoreSystem();
+//       scoreSystem();
 
         archer.update(Main.processing.mouseY);
         archer.displayArcher();
@@ -52,6 +52,7 @@ public class Lvl_2 {
                 ++n;
                 aBoom.displayReaction();
                 aBoom.playsong();
+             Main.updateScore=true;
             }
         }
 
