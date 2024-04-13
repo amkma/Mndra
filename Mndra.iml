@@ -7,17 +7,6 @@
     </content>
     <orderEntry type="jdk" jdkName="21" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="core1" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/Processing/libraries/minim/library/minim.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="core" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -25,6 +14,19 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libraries/library" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/libraries/library" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/libraries/library" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/libraries/library" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">

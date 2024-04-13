@@ -1,11 +1,13 @@
 import ddf.minim.AudioPlayer;
 import processing.core.PImage;
 
+
 class Boom
 {
     AudioPlayer boomsong;
     boolean fadingOut = false;
     int startTime = Main.processing.millis();
+    float alpha = 255;
     PImage boom;// define boom image
     float x,y,h,w; // coordinate of boom photo
     float displayTime;
@@ -22,11 +24,17 @@ class Boom
 //        Main.processing.tint(255,60);
     }
     void displayReaction(){
-        Main.processing.image(boom,x,y); // display boom photo
+        Main.processing.tint(255, alpha); // Apply transparency without changing color
+        Main.processing.image(boom, x, y);
+
+        // Gradually decrease the alpha value
+        alpha -= 1; // Adjust the decrement rate for desired fade speed
+        Main.processing.noTint();//make the others don't fade
+
     }
     void moveReaction()
     {
-        y+=2; // it will make boom move, but I still do not know how I can use it
+        //y+=2; // it will make boom move, but I still do not know how I can use it
     }
     void playsong()
     {
@@ -35,7 +43,8 @@ class Boom
         boomsong.play();
 
     }
-    void draw(){            }
+    void draw(){
+    }
 
     }
 
