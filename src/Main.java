@@ -59,8 +59,7 @@ public class Main extends PApplet{
     public void setup(){
         processing = this;
         frameRate(100);
-
-        f=createFont("VIP Arabic Typo",25,true);
+        f=createFont("VIP Arabic Typo.otf",25,true);
         textFont(f);
         button =new Button (385,80,250,80,"Play",0,111,154);
         Continue =new Button (365,540,290,80,"CONTINUE",0,111,154);
