@@ -6,7 +6,7 @@ class Lvl_1
 
 {
     // Constructor
-    void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state) //, boolean gameEnded
+    void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state,Button home) //, boolean gameEnded
     {
         // all of this just I take all things passed by constructor to class
         int n = 0;
@@ -51,12 +51,12 @@ class Lvl_1
                 float x = anEnemy.x;
                 float y = anEnemy.y;
                 boomList.add(new Boom("boom.png","boomsound.wav", x, y, 90, 40));
-                Main.processing.tint(255,90);
-                Main.processing.noTint();
+//                Main.processing.tint(255,90);
+//                Main.processing.noTint();
                 enemyList.remove(anEnemy);
                 Boom aBoom = boomList.get(n);
                 ++n;
-                aBoom.displayReaction();
+//                aBoom.displayReaction();
                 aBoom.playsong();
                 Main.updateScore=true;
 
@@ -109,6 +109,16 @@ class Lvl_1
                 else {
                     Main.lvl =2;
                 }
+            }
+            home.update();
+            if(home.isClicked())
+            {
+                arrowList.clear();
+                boomList.clear();
+                enemyList.clear();
+               Main.Enter_1 = false;
+               Main. accumulatedScore=0;
+               Main. menu=1;
             }
         }
     }

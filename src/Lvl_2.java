@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 
  class Lvl_2 {
-    void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state) //, boolean gameEnded
+    void displayLevel(Character archer, ArrayList<Arrow> arrowList, ArrayList<Enemy> enemyList, ArrayList<Boom> boomList, int arrowsNumber, boolean state,Button home) //, boolean gameEnded
     {
         int n = 0;
         Main.Enter_1 = true;
@@ -50,7 +50,7 @@ import java.util.ArrayList;
                 enemyList.remove(anEnemy);
                 Boom aBoom = boomList.get(n);
                 ++n;
-                aBoom.displayReaction();
+//                aBoom.displayReaction();
                 aBoom.playsong();
              Main.updateScore=true;
             }
@@ -86,6 +86,16 @@ import java.util.ArrayList;
                 Main. menu=5;
                 Main. Enter_1 = false;
 
+            }
+            home.update();
+            if(home.isClicked())
+            {
+                arrowList.clear();
+                boomList.clear();
+                enemyList.clear();
+                Main.Enter_1 = false;
+                Main. accumulatedScore=0;
+                Main. menu=1;
             }
         }
 

@@ -18,6 +18,7 @@ public class Main extends PApplet{
     Character Archer;//definition of Character Object
     Button button;//definition of Button Object
     Button Continue;
+    Button Home;
     Button Back;
     PFont f;
     Button lvl1;
@@ -66,6 +67,7 @@ public class Main extends PApplet{
         Continue =new Button (365,540,290,80,"CONTINUE",0,111,154);
         lvl1 =new Button (150,405,200,55,"lvl1",0,111,154);
         lvl2 =new Button (630,405,220,55,"lvl2",0,111,154);
+        Home =new Button (910,620,50,50,"Home",0,111,154);
         Back =new Button (365,540,300,70,"BACK",0,111,154);
         minim =new Minim(this);
         music =minim.loadFile("Om_Kalsoum.wav");
@@ -117,6 +119,7 @@ public class Main extends PApplet{
             break;
             case 1:
             {
+                alpha=0;
                 arrowsNumber = 20;
                 Reload=true;
                 float startX = sizeX - 45; // Adjust the starting x-coordinate
@@ -232,7 +235,7 @@ public class Main extends PApplet{
                 song.pause();
                 music.play();
                 Lvl_1 lvl1 = new Lvl_1();
-                lvl1.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state);//, gameEnded
+                lvl1.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state,Home);//, gameEnded
                 Score.displayScore(  enemyList,  arrowsNumber);
             }
             break;
@@ -245,7 +248,7 @@ public class Main extends PApplet{
                     song.play();
                     tint(255, alpha);
                     image(win, 0, 0);
-                    alpha+= 0.5F;
+                    alpha+= 0.05f;
                     noTint();
                     //Continue.display();
                     Continue.update();
@@ -263,7 +266,10 @@ public class Main extends PApplet{
                     music.pause();
                     enemyList.clear();
                     song.play();
+                    tint(255, alpha);
                     image(lose, 0, 0);
+                    alpha+= 0.05f;
+                    noTint();
                     //Back.display();
                     Back.update();
                     if(Back.isClicked())
@@ -282,7 +288,7 @@ public class Main extends PApplet{
                 song.pause();
                 music.play();
                 Lvl_2 lvl2 = new Lvl_2();
-                lvl2.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state);//, gameEnded
+                lvl2.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state,Home);//, gameEnded
                 Score.displayScore(  enemyList,  arrowsNumber);
 
             }
@@ -295,7 +301,7 @@ public class Main extends PApplet{
                     song.play();
                     tint(255, alpha);
                     image(win, 0, 0);
-                    alpha+= 0.5F;
+                    alpha+= 0.05f;
                     noTint();
                     //Continue.display();
                     Continue.update();
@@ -311,7 +317,10 @@ public class Main extends PApplet{
                     music.pause();
                     enemyList.clear();
                     song.play();
+                    tint(255, alpha);
                     image(lose, 0, 0);
+                    alpha+= 0.05f;
+                    noTint();
                     //Back.display();
                     Back.update();
                     if(Back.isClicked())
