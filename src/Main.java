@@ -50,6 +50,7 @@ public class Main extends PApplet{
     static int ArcherX=80;
     static int ArcherY=100;
     static int lvl=0;
+    float alpha = 0;
     Enemy[] monsters = new Enemy[15]; // Array to hold the monsters
     ScoreSystem Score =new ScoreSystem();
 
@@ -242,7 +243,10 @@ public class Main extends PApplet{
                 {
                     music.pause();
                     song.play();
+                    tint(255, alpha);
                     image(win, 0, 0);
+                    alpha+= 0.5F;
+                    noTint();
                     //Continue.display();
                     Continue.update();
                     if(Continue.isClicked())
@@ -289,7 +293,10 @@ public class Main extends PApplet{
                 {
                     music.pause();
                     song.play();
+                    tint(255, alpha);
                     image(win, 0, 0);
+                    alpha+= 0.5F;
+                    noTint();
                     //Continue.display();
                     Continue.update();
                     if(Continue.isClicked())
