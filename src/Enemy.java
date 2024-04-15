@@ -5,7 +5,7 @@ public class Enemy
     float left, right, top, bottom;// coordinates of enemy
     PImage enemy; //define  enemy photo
     boolean removeEnemy; // if it true will  make is remove enemy
-    int range;  //max(Y) of program (Height) , it is used to know what is maximum range of enemy can go
+    int range;  //max(Y) of program (Height) , it is used to know what is maximum range of enemy can go  iyhv
     float x, y, w, h;// enemy will start from this coordinates
     float speed;
     Enemy(String filename, float startingX, float startingY, int startingW, int startingH, int sizeY,float fast)
