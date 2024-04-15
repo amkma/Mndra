@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
         archer.update(Main.processing.mouseY);
         archer.displayArcher();
+        if (Main.alpha>=255) {
 
-        for (Enemy anEnemy : enemyList)
-        {
-            anEnemy.displayEnemy();
+            for (Enemy anEnemy : enemyList) {
+                anEnemy.displayEnemy();
+            }
         }
-
         for (Arrow anArrow : arrowList)
         {
             anArrow.displayArrow();
@@ -29,7 +29,7 @@ import java.util.ArrayList;
                 anArrow.shootEnemy(anEnemy);
             }
         }
-        Main.alpha+= 0.5f;
+        Main.alpha+= 0.8f;
         Main.processing. noTint();
         // Remove arrows and enemies that need to be cleaned
         for (int i = arrowList.size() - 1; i >= 0; i--)
