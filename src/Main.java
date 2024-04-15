@@ -51,7 +51,7 @@ public class Main extends PApplet{
     static int ArcherX=80;
     static int ArcherY=100;
     static int lvl=0;
-    float alpha = 0;
+    static float alpha = 0;
     Enemy[] monsters = new Enemy[15]; // Array to hold the monsters
     ScoreSystem Score =new ScoreSystem();
 
@@ -106,11 +106,15 @@ public class Main extends PApplet{
             case 0:
             {
                 song.play();
+                tint(255, alpha);
                 image(startbg,0,0);
+                alpha+= 0.08f;
+                noTint();
                 button.update();
                 //button.display();
                 if(button.isClicked())
                 {
+                    alpha=0;
                     menu=1;
                     //println("Arrows Number = 20");
                 }
@@ -119,9 +123,11 @@ public class Main extends PApplet{
             break;
             case 1:
             {
-                alpha=0;
+
                 arrowsNumber = 20;
-                Reload=true;
+//                Reload=true;
+                Reload = true;
+                Archer.setImage("shooterr.png");
                 float startX = sizeX - 45; // Adjust the starting x-coordinate
                 float startY = sizeY; // Adjust the y-coordinate if needed
                 int monsterWidth = 35; // Adjust the width of each monster
@@ -131,11 +137,16 @@ public class Main extends PApplet{
 
                 if(lvl==0)
                 {
+                    tint(255, alpha);
+
                     image(lvl1_start,0,0);
+                    alpha+= 0.3f;
+                    noTint();
                     lvl1.update();
                     //lvl1.display();
                     if(lvl1.isClicked())
                     {
+                        alpha=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
                             monsters[i] = new Enemy("monsterr.png", startX - i * (monsterWidth + spacing), startY, monsterWidth, monsterHeight, sizeY,speed);
@@ -149,12 +160,16 @@ public class Main extends PApplet{
                 {
                     music.loop();
                     music.pause();
+                    tint(255, alpha);
                     image(lvl2_start,0,0);
+                    alpha+= 0.3f;
+                    noTint();
                     lvl1.update();
                     lvl2.update();
-
                     if(lvl1.isClicked())
                     {
+                        alpha=0;
+
                         accumulatedScore=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
@@ -166,6 +181,8 @@ public class Main extends PApplet{
                     }
                     else if(lvl2.isClicked())
                     {
+                        alpha=0;
+
                         int x =(int)random (0,5);
                         int y =(int)random (5,10);
                         int z =(int)random (10,15);
@@ -190,14 +207,17 @@ public class Main extends PApplet{
                 {
                     music.loop();
                     music.pause();
-                    lvl1.display();
-                    lvl2.display();
-
+                 
+                    tint(255, alpha);
                     image(lvl3_start,0,0);
+                    alpha+= 0.3f;
+                    noTint();
                     lvl1.update();
                     lvl2.update();
                     if(lvl1.isClicked())
                     {
+                        alpha=0;
+
                         accumulatedScore=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coorrdinates ,don't ask me ho can I get this equation
@@ -208,6 +228,7 @@ public class Main extends PApplet{
                         arrowList.clear();
                     }if(lvl2.isClicked())
                 {
+                    alpha=0;
                     accumulatedScore=0;
                     int x =(int)random (0,5);
                     int y =(int)random (5,10);
@@ -254,6 +275,7 @@ public class Main extends PApplet{
                     Continue.update();
                     if(Continue.isClicked())
                     {
+                        alpha=0;
                         play=Continue.isClicked();
                         arrowsNumber = 20;
                         menu=1;
@@ -279,6 +301,8 @@ public class Main extends PApplet{
                         arrowsNumber = 20;
                         //music.close();
                         accumulatedScore=0;
+                        alpha=0;
+
                     }
                 }
             }
@@ -307,6 +331,7 @@ public class Main extends PApplet{
                     Continue.update();
                     if(Continue.isClicked())
                     {
+                        alpha=0;
                         arrowsNumber = 20;
                         menu=1;
                         song.loop();
@@ -327,6 +352,7 @@ public class Main extends PApplet{
                     {
                         //song.loop();
                         menu=1;
+                        alpha=0;
                         arrowsNumber = 20;
                         //music.close();
                         accumulatedScore=0;
@@ -340,7 +366,7 @@ public class Main extends PApplet{
 
     public void mousePressed()
     {
-        if (mouseButton == LEFT && Reload && arrowsNumber >= 0&&Enter_1&&!gameEnded)
+        if (mouseButton == LEFT && Reload && arrowsNumber >= 0&&Enter_1&&!gameEnded&&alpha>=255)
         {
             arrowList.add(new Arrow("arrowr.png", 0, mouseY+12, 45, 15, sizeX));
             --arrowsNumber;

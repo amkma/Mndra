@@ -6,6 +6,7 @@ import java.util.ArrayList;
     {
         int n = 0;
         Main.Enter_1 = true;
+        Main.processing.  tint(255, Main.alpha);
         Main.processing.image(Main.gif, 0, 0);
       Main.processing.image(Main.score, 0, 0);
 //       scoreSystem();
@@ -28,7 +29,8 @@ import java.util.ArrayList;
                 anArrow.shootEnemy(anEnemy);
             }
         }
-
+        Main.alpha+= 0.5f;
+        Main.processing. noTint();
         // Remove arrows and enemies that need to be cleaned
         for (int i = arrowList.size() - 1; i >= 0; i--)
         {
@@ -67,6 +69,8 @@ import java.util.ArrayList;
             if (arrowsNumber >= 0 && enemyList.isEmpty())
             {
                System.out.println("WINNER");
+                Main.alpha=0;
+
                 Main.gameEnded = true;
                 boomList.clear();
                 Main.gamestate = true;
@@ -78,6 +82,8 @@ import java.util.ArrayList;
             }       else if (arrowList.isEmpty() && enemyList.size() > 0 && arrowsNumber == 0)
             {
                 Main. println("GAME OVER");
+                Main.alpha=0;
+
                 Main.gameEnded = true;
                 boomList.clear();
                 Main.gamestate = false;
@@ -96,6 +102,8 @@ import java.util.ArrayList;
                 Main.Enter_1 = false;
                 Main. accumulatedScore=0;
                 Main. menu=1;
+                Main.alpha=0;
+
             }
         }
 

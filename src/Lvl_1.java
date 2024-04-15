@@ -11,10 +11,11 @@ class Lvl_1
         // all of this just I take all things passed by constructor to class
         int n = 0;
         Main.Enter_1 = true;
+        Main.processing.  tint(255, Main.alpha);
+
         Main.processing.image(Main.gif, 0, 0);
         Main.processing.image(Main.score, 0, 0);
-//        scoreSystem();
-        archer.update(Main.processing.mouseY);
+            archer.update(Main.processing.mouseY);
         archer.displayArcher();
 
         for (Enemy anEnemy : enemyList)
@@ -32,6 +33,8 @@ class Lvl_1
                 anArrow.shootEnemy(anEnemy);
             }
         }
+        Main.alpha+= 0.8f;
+        Main.processing. noTint();
 
         // Remove arrows and enemies that need to be cleaned
         for (int i = arrowList.size() - 1; i >= 0; i--)
@@ -74,6 +77,7 @@ class Lvl_1
             if (arrowsNumber >= 0 && enemyList.size() == 0)
             {
                 System.out.println("WINNER");
+                Main.alpha=0;
                 Main.gameEnded = true;
                 boomList.clear();
                 Main.gamestate = true;
@@ -92,6 +96,7 @@ class Lvl_1
             }       else if (arrowList.size() == 0 && enemyList.size() > 0 && arrowsNumber == 0)
             {
                 System.out.println("GAME OVER");
+                Main.alpha=0;
                 Main.gameEnded = true;
                 boomList.clear();
                 Main.gamestate = false;
@@ -119,6 +124,7 @@ class Lvl_1
                Main.Enter_1 = false;
                Main. accumulatedScore=0;
                Main. menu=1;
+               Main.alpha=0;
             }
         }
     }
