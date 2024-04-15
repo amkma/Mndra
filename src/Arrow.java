@@ -5,7 +5,7 @@ class Arrow
     PImage arrow; // define arrow's photo
     float x, y; // Coordinates of arrow
     float width, height; // size of arrow --->7gm el-sora y3ni
-    float speed = 2; // speed of arrow
+    float speed = 4 ; // speed of arrow
     int range; //max(X) of program (Width) , it is used to know what is maximum range of arrow can go
 
     boolean clean; // it is used to know if arrow  exceed range of program
