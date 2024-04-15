@@ -96,6 +96,8 @@ import java.util.ArrayList;
             home.update();
             if(home.isClicked())
             {
+                Main.Clickmouse.loop();
+                Main.Clickmouse.play();
                 arrowList.clear();
                 boomList.clear();
                 enemyList.clear();

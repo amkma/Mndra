@@ -12,6 +12,7 @@ public class Main extends PApplet{
     AudioPlayer music; //definition of music
     AudioPlayer song;//definition of song
     AudioPlayer boomsound;
+    static AudioPlayer Clickmouse;
     AudioPlayer arrowsound;
     //Movie video;
     float speed=1;
@@ -74,6 +75,7 @@ public class Main extends PApplet{
         music =minim.loadFile("Om_Kalsoum.wav");
         arrowsound =minim.loadFile("arrowsound.wav");
         boomsound =minim.loadFile("boomsound.wav");
+        Clickmouse =minim.loadFile("Clicksound.wav");
         song =minim.loadFile("melody.wav");
         win=loadImage("winner2.jpg");
         lose=loadImage("Gameover.jpg");
@@ -106,15 +108,18 @@ public class Main extends PApplet{
         {
             case 0:
             {
-                song.play();
+//                song.play();
                 tint(255, alpha);
                 image(startbg,0,0);
                 alpha+= 0.08f;
                 noTint();
                 button.update();
+//
                 //button.display();
                 if(button.isClicked())
                 {
+                    Clickmouse.loop();
+                    Clickmouse.play();
                     alpha=0;
                     menu=1;
                     //println("Arrows Number = 20");
@@ -146,6 +151,8 @@ public class Main extends PApplet{
                     //lvl1.display();
                     if(lvl1.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         alpha=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
@@ -168,8 +175,9 @@ public class Main extends PApplet{
                     lvl2.update();
                     if(lvl1.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         alpha=0;
-
                         accumulatedScore=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coordinates ,don't ask me ho can I get this equation
@@ -181,8 +189,9 @@ public class Main extends PApplet{
                     }
                     else if(lvl2.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         alpha=0;
-
                         int x =(int)random (0,5);
                         int y =(int)random (5,10);
                         int z =(int)random (10,15);
@@ -216,8 +225,9 @@ public class Main extends PApplet{
                     lvl2.update();
                     if(lvl1.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         alpha=0;
-
                         accumulatedScore=0;
                         for (int i = 0; i < monsters.length; i++)
                         { // making array of monsters that have defence x coorrdinates ,don't ask me ho can I get this equation
@@ -228,6 +238,8 @@ public class Main extends PApplet{
                         arrowList.clear();
                     }if(lvl2.isClicked())
                 {
+                    Clickmouse.loop();
+                    Clickmouse.play();
                     alpha=0;
                     accumulatedScore=0;
                     int x =(int)random (0,5);
@@ -253,7 +265,7 @@ public class Main extends PApplet{
             break;
             case 2:
             {
-                song.pause();
+//                song.pause();
                 music.play();
                 Lvl_1 lvl1 = new Lvl_1();
                 lvl1.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state,Home);//, gameEnded
@@ -266,7 +278,7 @@ public class Main extends PApplet{
                 if (gamestate)
                 {
                     music.pause();
-                    song.play();
+//                    song.play();
                     tint(255, alpha);
                     score();
                     image(win, 0, 0);
@@ -276,11 +288,13 @@ public class Main extends PApplet{
                     Continue.update();
                     if(Continue.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         alpha=0;
                         play=Continue.isClicked();
                         arrowsNumber = 20;
                         menu=1;
-                        song.loop();
+//                        song.loop();
                     }
 
                 }
@@ -288,7 +302,7 @@ public class Main extends PApplet{
                 {
                     music.pause();
                     enemyList.clear();
-                    song.play();
+//                    song.play();
                     tint(255, alpha);
                     image(lose, 0, 0);
                     alpha+= 0.05f;
@@ -297,6 +311,8 @@ public class Main extends PApplet{
                     Back.update();
                     if(Back.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         //song.loop();
                         menu=1;
                         arrowsNumber = 20;
@@ -310,7 +326,7 @@ public class Main extends PApplet{
             break;
             case 4:
             {
-                song.pause();
+//                song.pause();
                 music.play();
                 Lvl_2 lvl2 = new Lvl_2();
                 lvl2.displayLevel(Archer, arrowList, enemyList, boomList, arrowsNumber, state,Home);//, gameEnded
@@ -323,7 +339,7 @@ public class Main extends PApplet{
                 if (gamestate)
                 {
                     music.pause();
-                    song.play();
+//                    song.play();
 
                     tint(255, alpha);
                     score();
@@ -334,17 +350,19 @@ public class Main extends PApplet{
                     Continue.update();
                     if(Continue.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         alpha=0;
                         arrowsNumber = 20;
                         menu=1;
-                        song.loop();
+//                        song.loop();
                     }
                 }
                 else
                 {
                     music.pause();
                     enemyList.clear();
-                    song.play();
+//                    song.play();
 
                     tint(255, alpha);
                     image(lose, 0, 0);
@@ -354,6 +372,8 @@ public class Main extends PApplet{
                     Back.update();
                     if(Back.isClicked())
                     {
+                        Clickmouse.loop();
+                        Clickmouse.play();
                         //song.loop();
                         menu=1;
                         alpha=0;
