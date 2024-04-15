@@ -1,4 +1,5 @@
 import processing.core.*;
+
 import ddf.minim.*;
 
 import java.util.*;
@@ -75,7 +76,7 @@ public class Main extends PApplet{
         arrowsound =minim.loadFile("arrowsound.wav");
         boomsound =minim.loadFile("boomsound.wav");
         song =minim.loadFile("melody.wav");
-        win=loadImage("winner.jpg");
+        win=loadImage("winner2.jpg");
         lose=loadImage("Gameover.jpg");
         startbg =loadImage("startbg.jpg");
         goodguy =loadImage("goodguy.png");
@@ -268,6 +269,7 @@ public class Main extends PApplet{
                 {
                     music.pause();
                     song.play();
+                    score();
                     tint(255, alpha);
                     image(win, 0, 0);
                     alpha+= 0.05f;
@@ -324,6 +326,7 @@ public class Main extends PApplet{
                 {
                     music.pause();
                     song.play();
+                    score();
                     tint(255, alpha);
                     image(win, 0, 0);
                     alpha+= 0.05f;
@@ -343,6 +346,7 @@ public class Main extends PApplet{
                     music.pause();
                     enemyList.clear();
                     song.play();
+                   
                     tint(255, alpha);
                     image(lose, 0, 0);
                     alpha+= 0.05f;
@@ -388,4 +392,13 @@ public class Main extends PApplet{
             Archer.setImage("shooterr.png");
         }
     }
+    public static void score(){
+        int enemy = (15-enemyList.size());
+        int score = (arrowsNumber+1)*enemy;
+  
+          Main.processing.textSize(50);
+          Main.processing.  text(Main.accumulatedScore,438,385);
+  //        Main.processing.  text( enemy ,1000-87,45);
+  //        Main.processing.  text(arrowsNumber ,1000-87,103);
+      }
 }
