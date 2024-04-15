@@ -1,6 +1,6 @@
 import processing.core.*;
-import ddf.minim.*;
 
+import ddf.minim.*;
 import java.util.*;
 
 public class Main extends PApplet{
@@ -75,7 +75,7 @@ public class Main extends PApplet{
         arrowsound =minim.loadFile("arrowsound.wav");
         boomsound =minim.loadFile("boomsound.wav");
         song =minim.loadFile("melody.wav");
-        win=loadImage("winner.jpg");
+        win=loadImage("winner2.jpg");
         lose=loadImage("Gameover.jpg");
         startbg =loadImage("startbg.jpg");
         goodguy =loadImage("goodguy.png");
@@ -126,7 +126,6 @@ public class Main extends PApplet{
             {
 
                 arrowsNumber = 20;
-//                Reload=true;
                 Reload = true;
                 Archer.setImage("shooterr.png");
                 float startX = sizeX - 45; // Adjust the starting x-coordinate
@@ -208,7 +207,7 @@ public class Main extends PApplet{
                 {
                     music.loop();
                     music.pause();
-                 
+
                     tint(255, alpha);
                     image(lvl3_start,0,0);
                     alpha+= 0.3f;
@@ -269,6 +268,7 @@ public class Main extends PApplet{
                     music.pause();
                     song.play();
                     tint(255, alpha);
+                    score();
                     image(win, 0, 0);
                     alpha+= 0.05f;
                     noTint();
@@ -324,7 +324,9 @@ public class Main extends PApplet{
                 {
                     music.pause();
                     song.play();
+
                     tint(255, alpha);
+                    score();
                     image(win, 0, 0);
                     alpha+= 0.05f;
                     noTint();
@@ -343,6 +345,7 @@ public class Main extends PApplet{
                     music.pause();
                     enemyList.clear();
                     song.play();
+
                     tint(255, alpha);
                     image(lose, 0, 0);
                     alpha+= 0.05f;
@@ -388,4 +391,10 @@ public class Main extends PApplet{
             Archer.setImage("shooterr.png");
         }
     }
+    public static void score(){
+
+          Main.processing.textSize(50);
+          Main.processing.  text(Main.accumulatedScore,400,385);
+
+      }
 }

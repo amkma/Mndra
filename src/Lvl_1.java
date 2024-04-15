@@ -17,12 +17,11 @@ class Lvl_1
         Main.processing.image(Main.score, 0, 0);
             archer.update(Main.processing.mouseY);
         archer.displayArcher();
-
-        for (Enemy anEnemy : enemyList)
-        {
-            anEnemy.displayEnemy();
-        }
-
+if (Main.alpha>=255) {
+    for (Enemy anEnemy : enemyList) {
+        anEnemy.displayEnemy();
+    }
+}
         for (Arrow anArrow : arrowList)
         {
             anArrow.displayArrow();
