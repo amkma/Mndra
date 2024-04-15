@@ -38,6 +38,7 @@ class Boom
         boomsong.loop();
     //boomsong.pause();
         boomsong.play();
+        boomsong.setGain(-10);//control boom volume (negative is lower, positive is higher),kiss me mandour
 
     }
     }
