@@ -400,6 +400,7 @@ public class Main extends PApplet{
             if(!gameEnded)
             {
                 arrowsound.loop();
+                arrowsound.setGain(-10.0f);
                 arrowsound.pause();
                 arrowsound.play();
 
