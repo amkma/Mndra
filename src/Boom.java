@@ -28,7 +28,7 @@ class Boom
         Main.processing.image(boom, x, y);
 
         // Gradually decrease the alpha value
-        alpha -= 1; // Adjust the decrement rate for desired fade speed
+        alpha -= 2; // Adjust the decrement rate for desired fade speed
         Main.processing.noTint();//make the others don't fade
 
     }

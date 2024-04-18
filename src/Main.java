@@ -283,8 +283,9 @@ public class Main extends PApplet{
                 {
                     music.pause();
 //                    song.play();
-                    tint(255, alpha);
+
                     score();
+                    tint(255, alpha);
                     image(win, 0, 0);
                     alpha+= 0.05f;
                     noTint();
@@ -345,8 +346,8 @@ public class Main extends PApplet{
                     music.pause();
 //                    song.play();
 
-                    tint(255, alpha);
                     score();
+                    tint(255, alpha);
                     image(win, 0, 0);
                     alpha+= 0.05f;
                     noTint();
