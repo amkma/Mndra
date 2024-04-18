@@ -121,7 +121,8 @@ if (Main.alpha>=255) {
                Main.Clickmouse.play();
                 arrowList.clear();
                 boomList.clear();
-                enemyList.clear();
+
+                Main.music.pause();
                Main.Enter_1 = false;
                Main. accumulatedScore=0;
                Main. menu=1;

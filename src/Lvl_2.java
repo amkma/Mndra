@@ -7,7 +7,7 @@ import java.util.ArrayList;
         int n = 0;
         Main.Enter_1 = true;
         Main.processing.  tint(255, Main.alpha);
-        Main.processing.image(Main.gif, 0, 0);
+        Main.processing.image(Main.lvl2_gif, 0, 0);
       Main.processing.image(Main.score, 0, 0);
 //       scoreSystem();
 

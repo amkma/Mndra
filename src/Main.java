@@ -9,7 +9,7 @@ public class Main extends PApplet{
         PApplet.main("Main",args);
     }
 
-    AudioPlayer music; //definition of music
+   static AudioPlayer music; //definition of music
     AudioPlayer song;//definition of song
     AudioPlayer boomsound;
     static AudioPlayer Clickmouse;
@@ -39,6 +39,7 @@ public class Main extends PApplet{
     PImage startbg;// Declare a variable to hold the Start image
     PImage win;// Declare a variable to hold the winner image
     PImage lose;// Declare a variable to hold the Game over image
+    static PImage lvl2_gif;
     static boolean Enter_1;// it will be true in lvl 1 to make archer can through arrows ,if I don't use it I will make archer through arrows in start menu
     boolean Reload = true;// I make it in reloading arrows
     static boolean updateScore ;
@@ -79,6 +80,7 @@ public class Main extends PApplet{
         song =minim.loadFile("melody.wav");
         win=loadImage("winner2.jpg");
         lose=loadImage("Gameover.jpg");
+        lvl2_gif=loadImage("lvl2_gif.jpg");
         startbg =loadImage("startbg.jpg");
         goodguy =loadImage("goodguy.png");
         score =loadImage("Score.png");
@@ -91,6 +93,8 @@ public class Main extends PApplet{
         lvl1_start.resize(width,height);
         lvl2_start.resize(width,height);
         lvl3_start.resize(width,height);
+        lvl2_gif.resize(width,height);
+
         lose.resize(width, height);
         score.resize(width, height);
 
