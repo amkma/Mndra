@@ -284,11 +284,12 @@ public class Main extends PApplet{
                     music.pause();
 //                    song.play();
 
-                    score();
+
                     tint(255, alpha);
                     image(win, 0, 0);
                     alpha+= 0.05f;
                     noTint();
+                    score();
                     //Continue.display();
                     Continue.update();
                     if(Continue.isClicked())
@@ -346,11 +347,11 @@ public class Main extends PApplet{
                     music.pause();
 //                    song.play();
 
-                    score();
                     tint(255, alpha);
                     image(win, 0, 0);
                     alpha+= 0.05f;
                     noTint();
+                    score();
                     //Continue.display();
                     Continue.update();
                     if(Continue.isClicked())
